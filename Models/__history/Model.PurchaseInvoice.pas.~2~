@@ -1,0 +1,11 @@
+unit Model.PurchaseInvoice;
+
+interface
+uses Data.DB, Model.Declarations, MainDM;
+type
+  TPurchaseInvoice = class
+
+  end;
+implementation
+
+end.

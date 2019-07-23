@@ -1,0 +1,5 @@
+inherited TemplateEdit1: TTemplateEdit1
+  Caption = 'CurrencyTypeEditForm'
+  PixelsPerInch = 96
+  TextHeight = 16
+end

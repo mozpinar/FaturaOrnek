@@ -1,0 +1,29 @@
+unit View.CurrencyTypeEdit;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, View.TemplateEdit, Data.DB,
+  Vcl.StdCtrls, Vcl.ExtCtrls, Vcl.Mask, Vcl.DBCtrls;
+
+type
+  TTemplateEdit1 = class(TTemplateEdit)
+    lblCurrencyCode: TLabel;
+    lblCurrencyName: TLabel;
+    edCurrencyCode: TDBEdit;
+    edCurrencyName: TDBEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  TemplateEdit1: TTemplateEdit1;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,114 @@
+unit Support.FabricationListForm;
+
+interface
+uses
+  System.SysUtils, Forms, RTTI, System.Generics.Collections, View.TemplateForm,
+  View.TemplateEdit,
+  Data.DB
+  ;
+type
+
+
+  TFactoryMethodListForm<TBaseType> = reference to function: TBaseType;
+
+  TFactoryListForm<TKey, TBaseType> = class
+  private
+    fFactoryMethods: TDictionary<TKey, TFactoryMethodListForm<TBaseType>>;
+    function GetCount: Integer;
+  public
+    constructor Create;
+    property Count: Integer read GetCount;
+    procedure RegisterFactoryMethod(key: TKey; factoryMethod: TFactoryMethodListForm<TBaseType>);
+    procedure UnregisterFactoryMethod(key: TKey);
+    function IsRegistered(key: TKey): boolean;
+    function GetInstance(key: TKey): TBaseType;
+  end;
+
+
+  //TFormCreationFunc = TFactoryMethodListForm<TTemplateForm>;
+  //TEditFormCreationFunc = TFactoryMethodListForm<TTemplateEdit>;
+  TMyFactoryListForm = class
+    FormFactory: TFactoryListForm<string, TTemplateForm>;
+    //EditFormFactory: TFactoryListForm<string, TTemplateEdit>;
+    constructor Create;
+    procedure RegisterForm<T>(const TypeName : string; aFunc : TFactoryMethodListForm<TTemplateForm>);
+    function GetForm(const TypeName : string) : TTemplateForm;
+
+    //procedure RegisterEditForm<T>(const TypeName : string; aFunc : TFactoryMethodListForm<TTemplateEdit>);
+    //function GetEditForm(const TypeName : string) : TTemplateEdit;
+  end;
+
+
+var
+  MyFactoryListForm : TMyFactoryListForm;
+
+
+
+implementation
+
+{ TMyFactory }
+
+constructor TMyFactoryListForm.Create;
+begin
+  inherited;
+  FormFactory:= TFactoryListForm<string, TTemplateForm>.Create;
+end;
+
+function TMyFactoryListForm.GetForm(const TypeName: string): TTemplateForm;
+begin
+  Result := FormFactory.GetInstance(TypeName);
+end;
+
+procedure TMyFactoryListForm.RegisterForm<T>(const TypeName: string; aFunc : TFactoryMethodListForm<TTemplateForm>);
+begin
+  FormFactory.RegisterFactoryMethod(TypeName, aFunc);
+end;
+
+///////////////
+
+constructor TFactoryListForm<TKey, TBaseType>.Create;
+begin
+  inherited Create;
+  fFactoryMethods := TDictionary<TKey, TFactoryMethodListForm<TBaseType>>.Create;
+end;
+
+function TFactoryListForm<TKey, TBaseType>.GetCount: Integer;
+begin
+  Result := fFactoryMethods.Count;
+end;
+
+function TFactoryListForm<TKey, TBaseType>.GetInstance(key: TKey): TBaseType;
+var
+  factoryMethod: TFactoryMethodListForm<TBaseType>;
+begin
+  if not fFactoryMethods.TryGetValue(key, factoryMethod) or not Assigned(factoryMethod) then
+    raise Exception.Create('Factory not registered');
+  Result := factoryMethod;
+end;
+
+function TFactoryListForm<TKey, TBaseType>.IsRegistered(key: TKey): boolean;
+begin
+  Result := fFactoryMethods.ContainsKey(key);
+end;
+
+procedure TFactoryListForm<TKey, TBaseType>.RegisterFactoryMethod(key: TKey;
+  factoryMethod: TFactoryMethodListForm<TBaseType>);
+begin
+  if IsRegistered(key) then
+    raise Exception.Create('Factory already registered');
+  fFactoryMethods.Add(key, factoryMethod);
+end;
+
+procedure TFactoryListForm<TKey, TBaseType>.UnRegisterFactoryMethod(key: TKey);
+begin
+  if not IsRegistered(key) then
+    raise Exception.Create('Factory not registered');
+  fFactoryMethods.Remove(key);
+end;
+
+////////////////
+
+initialization
+  MyFactoryListForm := TMyFactoryListForm.Create;
+
+end.

@@ -1,0 +1,15 @@
+unit Support.Consts;
+
+interface
+type
+  TBrowseFormCommand = (efcmdNone,
+                        efcmdNext, efcmdPrev, efcmdFirst, efcmdLast, efcmdAdd, efcmdEdit,
+                        efcmdDelete, efcmdUndelete, efcmdViewDetail, efcmdPost,
+                        efcmdClose, efcmdRefresh, efcmdSaveAsTemplate,
+                        efcmdFind, efcmdPrint, efcmdActivateFilter, efcmdBuildFilter, efcmdDeactivateFilter
+                       );
+
+
+implementation
+
+end.

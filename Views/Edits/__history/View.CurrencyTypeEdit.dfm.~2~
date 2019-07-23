@@ -1,0 +1,59 @@
+inherited TemplateEdit1: TTemplateEdit1
+  Caption = 'CurrencyTypeEditForm'
+  ClientHeight = 141
+  ClientWidth = 562
+  ExplicitWidth = 578
+  ExplicitHeight = 180
+  PixelsPerInch = 96
+  TextHeight = 16
+  inherited Panel21: TPanel
+    Width = 562
+    Height = 100
+    ExplicitWidth = 605
+    ExplicitHeight = 209
+    object lblCurrencyCode: TLabel
+      Left = 53
+      Top = 19
+      Width = 93
+      Height = 16
+      Alignment = taRightJustify
+      Caption = 'lblCurrencyCode'
+    end
+    object lblCurrencyName: TLabel
+      Left = 49
+      Top = 51
+      Width = 97
+      Height = 16
+      Alignment = taRightJustify
+      Caption = 'lblCurrencyName'
+    end
+    object edCurrencyCode: TDBEdit
+      Left = 152
+      Top = 16
+      Width = 89
+      Height = 24
+      TabOrder = 0
+    end
+    object edCurrencyName: TDBEdit
+      Left = 152
+      Top = 48
+      Width = 321
+      Height = 24
+      TabOrder = 1
+    end
+  end
+  inherited Panel2: TPanel
+    Top = 100
+    Width = 562
+    inherited btnOk: TButton
+      Left = 349
+    end
+    inherited btnCancel: TButton
+      Left = 462
+    end
+  end
+  inherited DataSource1: TDataSource
+    Left = 544
+    Top = 40
+  end
+end
