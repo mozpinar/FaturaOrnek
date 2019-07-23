@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{8967B870-AA28-45F2-A193-9BE5542353C6}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="Ornek.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="Ornek">
+        <MSBuild Projects="Ornek.dproj"/>
+    </Target>
+    <Target Name="Ornek:Clean">
+        <MSBuild Projects="Ornek.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="Ornek:Make">
+        <MSBuild Projects="Ornek.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="Ornek"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="Ornek:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="Ornek:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
