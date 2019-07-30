@@ -2,9 +2,9 @@
 Fatura giriş yapılabilen örnek bir proje. Tedarikçiler, müşteriler, stoklar, döviz kurları girilen ve birbiriyle ilişkilendirilen basit bir sistem.
 
 Bu programın bazı özellikleri
-1-Alım satım işlemleri dövizlidir, döviz dönüştürme işlemlerini otomatik yapar.
-2-Ayrıca bir döviz cinsleri ve kurları için giriş ekranı vardır.
-3-Müşteriler, Satıcı firmalar, Stok kartları girişleri 
+  * Alım satım işlemleri dövizlidir, döviz dönüştürme işlemlerini otomatik yapar.
+  * Ayrıca bir döviz cinsleri ve kurları için giriş ekranı vardır.
+  * Müşteriler, Satıcı firmalar, Stok kartları girişleri 
 
 ### Programın çalışabilir kodları [burada](https://raw.githubusercontent.com/mozpinar/FaturaOrnek/master/FaturaOrnekExe.rar)!
 
