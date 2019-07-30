@@ -1,7 +1,7 @@
 # FaturaOrnek
 Fatura giriş yapılabilen örnek bir proje. Tedarikçiler, müşteriler, stoklar, döviz kurları girilen ve birbiriyle ilişkilendirilen basit bir sistem.
 
-#Programın çalışabilir kodları [burada](https://raw.githubusercontent.com/mozpinar/FaturaOrnek/master/FaturaOrnekExe.rar)!
+# Programın çalışabilir kodları [burada](https://raw.githubusercontent.com/mozpinar/FaturaOrnek/master/FaturaOrnekExe.rar)!
 
 ![Parola ekranı](https://raw.githubusercontent.com/mozpinar/FaturaOrnek/master/Docs/1-Login%20form.png)
 
