@@ -5,6 +5,8 @@ Bu programın bazı özellikleri
   * Alım satım işlemleri dövizlidir, döviz dönüştürme işlemlerini otomatik yapar.
   * Ayrıca bir döviz cinsleri ve kurları için giriş ekranı vardır.
   * Müşteriler, Satıcı firmalar, Stok kartları girişleri 
+  * Fatura girişi sırasında, firmayı seçtiğinizde faturanın döviz kodunu ve döviz kurunu firmanın döviz kodu olarak otomatik getirir. Her stok kaleminin ayrı döviz kodu olabilir. Giriş esnasında birim fiyatları stoğun döviz kodundan fatura döviz koduna otomatik çevirir. Her satıra miktar girildiğinde fatura, Kdv tutarını otomatik hesaplar.
+  
 
 ### Programın çalışabilir kodları [burada](https://raw.githubusercontent.com/mozpinar/FaturaOrnek/master/FaturaOrnekExe.rar)!
 
