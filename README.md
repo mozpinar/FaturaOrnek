@@ -4,9 +4,11 @@ Fatura giriş yapılabilen örnek bir proje. Tedarikçiler, müşteriler, stokla
 ### Altyapısına ilişkin özellikleri
   * Delphi 10.2 Tokyo ile ve modern yazılım standartlarına göre yazılmıştır. Bazı kısımlar daha basit olsun diye bazı tasarım kalıplarından ödün verilse de genelde uyulmaya çalışılmıştır. Örneğin FireDAC kullanılmasına karşın programın sadece bir Unit'inde FD veritabanı işlemleri vardır, diğer kısımlar jeneriktir. Haliyle 1 günde FireDAC'tan başka bir DB Engine ya da DB kullanılır hale getirilebilir.
   * Formlar arasında sıkı bağ yoktur. Bir formu projeden çıkarıp, .pas ve . dfm dosyalarını silseniz bile derleyebilirsiniz. Sadece menüden o formu seçtiğinizde bulunamadı hatası verir.
-  * Temelde 4 tür form öngörülmüştür. 
+  * Temelde 3 tür form öngörülmüştür. 
      * Ana Form : Bu zaten tektir,
      * Liste formları : Ana formdan seçim yapıldığında bu formlar açılır, örneğin ana formdan Satıcılar seçildiğinde Satıcılar Listesi açılır. Bunun üzerinde ekle, düzelt, sil butonları bulunur. Ana formla bu ekranlar arasında direkt bağlantı yoktur. Her liste formu kendisini global bir listeye ismiyle kaydeder, ana form bu formu bu isimle çağırır.
+     * Edit formları : Hemen her liste formunun bir edit formu vardır. Bunlar arasında da katı bağ yoktur. Yani bir edit formu da projeden çıkarılıp dosyaları silinirse, proje derleme hatası vermez. Her edit formu kendini bir listeye adıyla ve yaratma fonksiyonuyla kaydeder, listeden bu form bu isimle çağrılır.
+     
   
 ### Bu programın bazı özellikleri
   * Alım satım işlemleri dövizlidir, döviz dönüştürme işlemlerini otomatik yapar.
